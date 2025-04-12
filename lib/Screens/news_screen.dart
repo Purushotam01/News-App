@@ -1,7 +1,9 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:provider/provider.dart';
 import 'package:flutter_inappwebview/flutter_inappwebview.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../providers/news_provider.dart';
 import '../providers/theme_provider.dart';
@@ -41,9 +43,9 @@ class NewsScreenState extends State<NewsScreen> {
     super.dispose();
   }
 
-  void _search() {
+  void _search(val) {
     Provider.of<NewsProvider>(context, listen: false)
-        .fetchNews(query: _searchController.text);
+        .fetchNews(query: val);
   }
 
   Future<void> _refresh() async {
@@ -98,12 +100,15 @@ class NewsScreenState extends State<NewsScreen> {
                               icon: const Icon(Icons.clear),
                               onPressed: () {
                                 _searchController.clear();
-                                _search();
+                                
                               },
                             )
                           : null,
                     ),
-                    onSubmitted: (_) => _search(),
+                    onChanged: (val){
+                      _search(val);
+                    },
+                    onSubmitted: (val) => _search(val),
                   ),
                 ),
               ],
@@ -159,12 +164,16 @@ class NewsCard extends StatelessWidget {
       margin: const EdgeInsets.all(8),
       child: InkWell(
         onTap: () {
-          Navigator.push(
+         if(kIsWeb){
+          launchUrl(Uri.parse(article.url));
+         }else{
+           Navigator.push(
             context,
             MaterialPageRoute(
               builder: (context) => WebViewScreen(url: article.url),
             ),
           );
+         }
         },
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
