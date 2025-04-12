@@ -1,16 +1,41 @@
-# news_app
+# 📰 News App
 
-A new Flutter project.
+A Flutter-based News App that fetches and displays the latest news articles with features like in-app browsing, theme switching, and search functionality.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Features
 
-A few resources to get you started if this is your first Flutter project:
+- 🔍 Search for news articles
+- 🌙 Toggle between Light & Dark mode
+- 🌐 Open articles in an embedded web view
+- 🔄 Pull-to-refresh the news feed
+- 👤 Navigate to a sample profile screen
+- 📅 View published dates in a readable format
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+---
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## 📦 Dependencies
+
+| Package                | Description                                          |
+|------------------------|------------------------------------------------------|
+| `provider`             | For managing app-wide state                         |
+| `http`                 | To fetch news data from an API                      |
+| `intl`                 | To format dates and times                           |
+| `flutter_inappwebview` | For opening articles in an in-app browser           |
+| `cupertino_icons`      | For iOS-styled icons                                |
+
+---
+
+## 📁 Project Structure
+
+
+---
+
+## 🛠️ Getting Started
+
+```bash
+git clone https://github.com/Purushotam01/News-App.git
+cd News-App
+flutter pub get
+flutter run
