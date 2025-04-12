@@ -12,7 +12,6 @@ class AuthProvider with ChangeNotifier {
   String get profileImage => _profileImage;
 
   void login(String email, String password) {
-    // Simple authentication (just for demo)
     _isAuthenticated = true;
     _email = email;
     notifyListeners();

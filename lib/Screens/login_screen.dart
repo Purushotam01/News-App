@@ -32,7 +32,6 @@ class LoginScreenState extends State<LoginScreen> {
     });
 
     try {
-      // Await the login method, which is now async
       Provider.of<AuthProvider>(context, listen: false).login(
         _emailController.text,
         _passwordController.text,
